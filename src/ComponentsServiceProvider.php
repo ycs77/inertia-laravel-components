@@ -1,18 +1,18 @@
 <?php
 
-namespace Inertia\Ui;
+namespace Inertia;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Inertia\Ui\Pagination\Paginator;
+use Inertia\Pagination\Paginator;
 
-class ServiceProvider extends BaseServiceProvider
+class ComponentsServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/inertia-ui.php', 'inertia-ui');
+        $this->mergeConfigFrom(__DIR__.'/../config/inertia-components.php', 'inertia-components');
 
-        if ($this->app['config']->get('inertia-ui.register_pagination')) {
+        if ($this->app['config']->get('inertia-components.register_pagination')) {
             $this->app->bind(LengthAwarePaginator::class, Paginator::class);
         }
     }
@@ -24,13 +24,13 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function publishingFiles()
     {
-        $pagesPath = $this->app['config']->get('inertia-ui.pages_path');
-        $componentsPath = $this->app['config']->get('inertia-ui.components_path');
-        $stylesPath = $this->app['config']->get('inertia-ui.styles_path');
+        $pagesPath = $this->app['config']->get('inertia-components.pages_path');
+        $componentsPath = $this->app['config']->get('inertia-components.components_path');
+        $stylesPath = $this->app['config']->get('inertia-components.styles_path');
 
         $this->publishes([
-            __DIR__.'/../config/inertia-ui.php' => config_path('inertia-ui.php'),
-        ], 'inertia-ui-config');
+            __DIR__.'/../config/inertia-components.php' => config_path('inertia-components.php'),
+        ], 'inertia-components-config');
 
         $this->publishes([
             __DIR__.'/../resources/error-vue' => $pagesPath,

@@ -1,8 +1,8 @@
 {
-    "name": "ycs77/inertia-laravel-ui",
-    "description": "The Inertia.js Laravel & Vue component library",
+    "name": "ycs77/inertia-laravel-components",
+    "description": "The Inertia.js Laravel & Vue components library",
     "keywords": ["laravel", "inertia"],
-    "homepage": "https://github.com/ycs77/inertia-laravel-ui",
+    "homepage": "https://github.com/ycs77/inertia-laravel-components",
     "license": "MIT",
     "authors": [
         {
@@ -15,35 +15,18 @@
         "inertiajs/inertia-laravel": ">=0.3.6",
         "laravel/framework": ">=7.0"
     },
-    "require-dev": {
-        "nunomaduro/collision": "^5.3",
-        "orchestra/testbench": ">=4.0",
-        "pestphp/pest": "^1.18",
-        "pestphp/pest-plugin-laravel": "^1.1"
-    },
     "autoload": {
         "psr-4": {
-            "Inertia\\Ui\\": "src"
+            "Inertia\\": "src"
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Inertia\\Ui\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "./vendor/bin/pest --no-coverage"
     },
     "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Inertia\\Ui\\ServiceProvider"
+                "Inertia\\ComponentsServiceProvider"
             ]
         }
     },

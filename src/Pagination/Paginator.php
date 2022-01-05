@@ -1,6 +1,6 @@
 <?php
 
-namespace Inertia\Ui\Pagination;
+namespace Inertia\Pagination;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
