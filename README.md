@@ -9,6 +9,11 @@
 
 The Inertia.js Laravel & Vue component library
 
+Components list:
+<!-- no toc -->
+* [Error Handler](#error-handler)
+* [Pagination](#pagination)
+
 ## Installation
 
 Install the package via composer:
