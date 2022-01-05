@@ -1,0 +1,50 @@
+<template>
+  <div class="font-medium">
+    <div class="flex justify-between md:hidden">
+      <template v-for="link in simpleLinks">
+        <Component
+          :is="link.url ? 'Link' : 'div'"
+          :href="link.url || null"
+          class="pagination-item"
+          :class="link.url ? 'pagination-link' : 'pagination-disabled'"
+        >
+          {{ link.label }}
+        </Component>
+      </template>
+    </div>
+
+    <div class="hidden md:flex md:flex-wrap">
+      <template v-for="link in links">
+        <Component
+          :is="!link.active && link.url ? 'Link' : 'div'"
+          :href="link.url || null"
+          class="pagination-item mr-2 mt-2"
+          :class="
+            link.active
+              ? 'pagination-active'
+              : (link.url ? 'pagination-link' : 'pagination-disabled')
+          "
+        >
+          {{ link.label }}
+        </Component>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    links: Array,
+    color: String,
+  },
+  computed: {
+    simpleLinks() {
+      return [
+        this.links.slice(0).shift(),
+        this.links.slice(-1).pop(),
+      ]
+    },
+  },
+}
+</script>

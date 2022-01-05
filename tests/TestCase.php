@@ -1,8 +1,8 @@
 <?php
 
-namespace Inertia\Helper\Tests;
+namespace Inertia\Ui\Tests;
 
-use Inertia\Helper\ServiceProvider;
+use Inertia\Ui\ServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

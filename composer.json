@@ -1,8 +1,8 @@
 {
-    "name": "ycs77/inertia-laravel-helper",
-    "description": "The Inertia.js Laravel helper",
+    "name": "ycs77/inertia-laravel-ui",
+    "description": "The Inertia.js Laravel & Vue component library",
     "keywords": ["laravel", "inertia"],
-    "homepage": "https://github.com/ycs77/inertia-laravel-helper",
+    "homepage": "https://github.com/ycs77/inertia-laravel-ui",
     "license": "MIT",
     "authors": [
         {
@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Inertia\\Helper\\": "src"
+            "Inertia\\Ui\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Inertia\\Helper\\Tests\\": "tests"
+            "Inertia\\Ui\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Inertia\\Helper\\ServiceProvider"
+                "Inertia\\Ui\\ServiceProvider"
             ]
         }
     },
