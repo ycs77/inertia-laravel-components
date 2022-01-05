@@ -1,0 +1,52 @@
+{
+    "name": "ycs77/inertia-laravel-helper",
+    "description": "The Inertia.js Laravel helper",
+    "keywords": ["laravel", "inertia"],
+    "homepage": "https://github.com/ycs77/inertia-laravel-helper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas Yang",
+            "email": "yangchenshin77@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "inertiajs/inertia-laravel": ">=0.3.6",
+        "laravel/framework": ">=7.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.3",
+        "orchestra/testbench": ">=4.0",
+        "pestphp/pest": "^1.18",
+        "pestphp/pest-plugin-laravel": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Inertia\\Helper\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inertia\\Helper\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest --no-coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Inertia\\Helper\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
