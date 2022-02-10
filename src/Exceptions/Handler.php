@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler
             500 => 'Server Error',
             503 => $e->getMessage() ?: 'Service Unavailable',
         ];
-        $message = __($errorMessages[$code]);
+        $message = __($errorMessages[$code] ?? null);
 
         if (in_array($code, [419, 429])) {
             return back()->with('error_message', $message);
