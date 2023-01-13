@@ -16,11 +16,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    code: Number,
-    message: String,
-  }
-}
+<script setup>
+defineProps({
+  code: Number,
+  message: String,
+})
 </script>

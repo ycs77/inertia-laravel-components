@@ -4,7 +4,7 @@
       <template v-for="link in simpleLinks">
         <Component
           :is="link.url ? 'Link' : 'div'"
-          :href="link.url || null"
+          :href="link.url"
           class="pagination-item"
           :class="link.url ? 'pagination-link' : 'pagination-disabled'"
         >
@@ -17,7 +17,7 @@
       <template v-for="link in links">
         <Component
           :is="!link.active && link.url ? 'Link' : 'div'"
-          :href="link.url || null"
+          :href="link.url"
           class="pagination-item mr-2 mt-2"
           :class="
             link.active
@@ -32,19 +32,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    links: Array,
-    color: String,
-  },
-  computed: {
-    simpleLinks() {
-      return [
-        this.links.slice(0).shift(),
-        this.links.slice(-1).pop(),
-      ]
-    },
-  },
-}
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const props = defineProps({
+  links: Array,
+})
+
+const simpleLinks = computed(() => [
+  props.links.slice(0).shift(),
+  props.links.slice(-1).pop(),
+])
 </script>
