@@ -2,10 +2,8 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
+[![Style CI Build Status][ico-style-ci]][link-style-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
-
-<!-- [![GitHub Tests Action Status][ico-github-action]][link-github-action] -->
-<!-- [![Style CI Build Status][ico-style-ci]][link-style-ci] -->
 
 The Inertia.js Laravel & Vue components library
 
@@ -63,11 +61,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/ycs77/inertia-laravel-components?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
-<!-- [ico-github-action]: https://img.shields.io/github/workflow/status/ycs77/inertia-laravel-components/run-tests?label=tests&style=flat-square -->
-<!-- [ico-style-ci]: https://github.styleci.io/repos/417571519/shield?style=flat-square -->
+[ico-style-ci]: https://github.styleci.io/repos/444753402/shield?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/ycs77/inertia-laravel-components?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/ycs77/inertia-laravel-components
-<!-- [link-github-action]: https://github.com/ycs77/inertia-laravel-components/actions?query=workflow%3Arun-tests+branch%3Amain -->
-<!-- [link-style-ci]: https://github.styleci.io/repos/417571519 -->
+[link-style-ci]: https://github.styleci.io/repos/444753402
 [link-downloads]: https://packagist.org/packages/ycs77/inertia-laravel-components
