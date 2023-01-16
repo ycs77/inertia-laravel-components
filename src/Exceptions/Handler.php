@@ -11,11 +11,18 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     /**
-     * The error page name.
+     * Renders the error page name.
      *
      * @var string
      */
-    protected $error_page = 'Error';
+    protected $errorPage = 'Error';
+
+    /**
+     * Returns the flash error message key name.
+     *
+     * @var string
+     */
+    protected $errorMessageKey = 'error_message';
 
     /**
      * Render an exception into an HTTP response.
@@ -29,6 +36,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         $response = parent::render($request, $e);
+
         $code = $response->getStatusCode();
         $errorMessages = [
             401 => 'Unauthorized',
@@ -42,13 +50,13 @@ class Handler extends ExceptionHandler
         $message = __($errorMessages[$code] ?? null);
 
         if (in_array($code, [419, 429])) {
-            return back()->with('error_message', $message);
+            return back()->with($this->errorMessageKey, $message);
         }
 
         if (in_array($code, array_keys($errorMessages)) &&
             ! config('app.debug')
         ) {
-            $response = Inertia::render($this->error_page);
+            $response = Inertia::render($this->errorPage);
             $response = $this->transformInertiaErrorResponse($response, compact('message'));
 
             return $response
@@ -61,7 +69,14 @@ class Handler extends ExceptionHandler
         return $response;
     }
 
-    protected function transformInertiaErrorResponse(Response $response, array $params = [])
+    /**
+     * Transform the inertia error response.
+     *
+     * @param  \Inertia\Response  $response
+     * @param  array  $params
+     * @return \Inertia\Response
+     */
+    protected function transformInertiaErrorResponse(Response $response, array $params = []): Response
     {
         if (class_exists(HeadManager::class)) {
             $response->title($params['message']);
