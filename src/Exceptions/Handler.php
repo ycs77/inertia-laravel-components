@@ -5,7 +5,6 @@ namespace Inertia\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Inertia\Inertia;
 use Inertia\Response;
-use Inertia\SSRHead\HeadManager;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -78,7 +77,7 @@ class Handler extends ExceptionHandler
      */
     protected function transformInertiaErrorResponse(Response $response, array $params = []): Response
     {
-        if (class_exists(HeadManager::class)) {
+        if (Response::hasMacro('title')) {
             $response->title($params['message']);
         }
 
