@@ -59,8 +59,10 @@ class Handler extends ExceptionHandler
         $messages = $this->messages($e);
         $message = __($messages[$code] ?? null);
 
-        if (in_array($code, [419, 429])) {
-            return back()->with($this->errorMessageKey, $message);
+        if (! $request->isMethod('GET') && in_array($code, [419, 429])) {
+            return back()
+                ->setStatusCode($code)
+                ->with($this->errorMessageKey, $message);
         }
 
         if (! config('app.debug') && array_key_exists($code, $messages)) {
