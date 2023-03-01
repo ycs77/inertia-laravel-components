@@ -24,6 +24,25 @@ class Handler extends ExceptionHandler
     protected $errorMessageKey = 'error_message';
 
     /**
+     * Return a list of error messages.
+     *
+     * @param  \Throwable  $e
+     * @return array<int, string>
+     */
+    public function messages(Throwable $e)
+    {
+        return [
+            401 => 'Unauthorized',
+            403 => $e->getMessage() ?: 'Forbidden',
+            404 => 'Not Found',
+            419 => 'The page expired, please try again.',
+            429 => $e->getMessage() ?: 'Too Many Requests',
+            500 => 'Server Error',
+            503 => $e->getMessage() ?: 'Service Unavailable',
+        ];
+    }
+
+    /**
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,24 +56,14 @@ class Handler extends ExceptionHandler
         $response = parent::render($request, $e);
 
         $code = $response->getStatusCode();
-        $errorMessages = [
-            401 => 'Unauthorized',
-            403 => $e->getMessage() ?: 'Forbidden',
-            404 => 'Not Found',
-            419 => 'The page expired, please try again.',
-            429 => $e->getMessage() ?: 'Too Many Requests',
-            500 => 'Server Error',
-            503 => $e->getMessage() ?: 'Service Unavailable',
-        ];
-        $message = __($errorMessages[$code] ?? null);
+        $messages = $this->messages($e);
+        $message = __($messages[$code] ?? null);
 
         if (in_array($code, [419, 429])) {
             return back()->with($this->errorMessageKey, $message);
         }
 
-        if (in_array($code, array_keys($errorMessages)) &&
-            ! config('app.debug')
-        ) {
+        if (! config('app.debug') && array_key_exists($code, $messages)) {
             $response = Inertia::render($this->errorPage);
             $response = $this->transformInertiaErrorResponse($response, compact('message'));
 
