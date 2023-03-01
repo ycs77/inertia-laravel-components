@@ -21,7 +21,7 @@ class Handler extends ExceptionHandler
      *
      * @var string
      */
-    protected $errorMessageKey = 'error_message';
+    protected $errorMessageKey = 'error';
 
     /**
      * Return a list of error messages.
