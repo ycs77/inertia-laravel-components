@@ -12,6 +12,12 @@ Components list:
 * [Error Handler](#error-handler)
 * [Pagination](#pagination)
 
+## Supported Versions
+
+| Version                                                             | Laravel Version     |
+| ------------------------------------------------------------------- | ------------------- |
+| [0.x](https://github.com/ycs77/inertia-laravel-components/tree/0.x) | 7.x, 8.x, 9.x, 10.x |
+
 ## Installation
 
 Install the package via composer:
