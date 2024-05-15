@@ -5,18 +5,15 @@
 [![Style CI Build Status][ico-style-ci]][link-style-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-The Inertia.js Laravel & Vue components library
+> [!IMPORTANT]
+> This package is only supported Laravel v7~v10, it's recommended to use [Inertia Engage](https://github.com/ycs77/inertia-engage) package instead with Laravel 11+ usage.
+
+The Inertia.js Laravel & Vue components library.
 
 Components list:
 <!-- no toc -->
 * [Error Handler](#error-handler)
 * [Pagination](#pagination)
-
-## Supported Versions
-
-| Version                                                             | Laravel Version     |
-| ------------------------------------------------------------------- | ------------------- |
-| [0.x](https://github.com/ycs77/inertia-laravel-components/tree/0.x) | 7.x, 8.x, 9.x, 10.x |
 
 ## Installation
 
